@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+.venv/
+venv/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# OS
+.DS_Store
+Thumbs.db
+~$*
+
+# Temporários / OLD
+OLD/
+*.docx
+Relatorio_dinamico_SAF-NL.html
+translate_saf.py
