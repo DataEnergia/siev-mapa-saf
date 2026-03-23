@@ -83,6 +83,220 @@ def norm_rota(rota: str) -> str:
     if "FT"    in r: return "FT"
     return "Outros"
 
+# ── Traduções PT / EN ─────────────────────────────────────────────────────────
+def get_lang() -> str:
+    v = st.session_state.get("lang_sel", "🇧🇷 PT")
+    return "en" if "EN" in str(v) else "pt"
+
+T: dict = {
+    "pt": {
+        "sb_map_bg":     "◎ &nbsp;Fundo do Mapa",
+        "sb_projects":   "◉ &nbsp;Projetos SAF",
+        "sb_layers":     "⊕ &nbsp;Camadas do Mapa",
+        "sb_feedstocks": "◆ &nbsp;Feedstocks · SAF",
+        "btn_all":       "✓ Todos",
+        "btn_none":      "✕ Nenhum",
+        "lyr_ref":       "Refinarias de Petróleo",
+        "lyr_usi":       "Usinas de Etanol",
+        "lyr_fed":       "Rodovias Federais",
+        "lyr_est":       "Rodovias Estaduais",
+        "feed_off":      "— Desativado",
+        "feed_soy":      "▸  Soja",
+        "feed_corn":     "▸  Milho",
+        "feed_cane":     "▸  Cana-de-açúcar",
+        "feed_year_lbl": "Ano",
+        "feed_choro":    "◫  Coroplético",
+        "feed_heat":     "≋  Mapa de Calor",
+        "filter_ph":     "Filtrar projetos...",
+        "footer":        "SIEV · Inteligência em Energias Verdes · CEHTES 2025",
+        "topbar_sub":    "Mapeamento Territorial · Brasil · SAF &amp; Energias Renováveis",
+        "card_states":   "Estados Mapeados",
+        "card_states_u": "UFs",
+        "card_projects": "Projetos no Mapa",
+        "card_regions":  "Regiões",
+        "card_regions_u":"regiões",
+        "card_layer":    "Camada Ativa",
+        "ph_title":      "Selecione um projeto",
+        "ph_body":       "Clique em um marcador<br>no mapa para ver os<br>detalhes do projeto",
+        "p_saf_type":    "Projeto SAF · Brasil",
+        "p_cap":         "Capacidade SAF",
+        "p_cap_u":       "m³/ano",
+        "p_year":        "Ano de Início",
+        "p_city":        "Município / UF",
+        "p_feed":        "Feedstock Principal",
+        "p_invest":      "Investimento",
+        "p_stage":       "Estágio do Projeto",
+        "p_stage_d":     "Descrição do Estágio",
+        "p_sources":     "Fontes",
+        "r_type":        "Refinaria · Brasil",
+        "r_company":     "Empresa / Razão Social",
+        "r_city":        "Município / UF",
+        "r_cap":         "Capacidade Autorizada",
+        "r_year":        "Ano de Inauguração",
+        "r_source":      "Fonte dos Dados",
+        "u_type":        "Usina de Etanol · Brasil",
+        "u_cap":         "Capacidade",
+        "u_cap_u":       "m³/dia",
+        "u_start":       "Início",
+        "u_city":        "Município / UF",
+        "u_status":      "Situação Operacional",
+        "u_class":       "Classe de Capacidade",
+        "leg_route":     "Rota Tecnológica",
+        "leg_layers":    "Camadas Ativas",
+        "rt_copro":      "Coprocessamento HEFA",
+        "rt_hefa":       "HEFA Dedicado",
+        "rt_atj":        "ATJ (Alcohol-to-Jet)",
+        "rt_ft":         "FT (Fischer-Tropsch)",
+        "rt_other":      "Outros",
+        "map_state":     "Estado:",
+        "map_uf":        "UF:",
+        "map_region":    "Região:",
+        "feed_prod_u":   "Produção (t)",
+        "feed_lyr":      "Feedstock SAF",
+        "sec_feed":      "Série Histórica · {name} · Evolução por Estado",
+        "sec_charts":    "Análise dos Projetos SAF · Capacidade &amp; Distribuição Tecnológica",
+        "tab1":          "Capacidade por Rota",
+        "tab2":          "Capacidade + Distribuição",
+        "tab3":          "Linha do Tempo",
+        "tab4":          "Distribuição Acumulada",
+        "tab5":          "Evolução Acumulada",
+        "sp_load":       "Carregando {} {}…",
+        "sp_cane":       "Carregando Cana-de-açúcar…",
+        "sp_hist":       "Carregando série histórica…",
+        "no_data":       "Dados históricos de {} não disponíveis no momento.",
+        "ch_by_state":   "{} · Produção por Estado (mil t)",
+        "ch_season":     "Safra",
+        "ch_prod_u":     "Produção (mil t)",
+        "ch_top10_mun":  "Top 10 Municípios · {} {}",
+        "ch_prod_unit_t":"Produção (mil t)",
+        "ch_top10_uf":   "Top 10 Estados · Cana Safra {}",
+        "tile_light":    "○  Claro",
+        "tile_dark":     "◑  Escuro",
+        "tile_osm":      "◎  OpenStreet",
+        "tile_sat":      "⊙  Satélite",
+        "tile_mesh":     "□  Só Malha",
+        "lyr_ref_map":   "Refinarias de Petróleo",
+        "lyr_usi_map":   "Usinas de Etanol",
+        "lyr_fed_map":   "Rodovias Federais",
+        "lyr_est_map":   "Rodovias Estaduais",
+        "feed_soy_name": "Soja",
+        "feed_corn_name":"Milho",
+        "feed_cane_name":"Cana-de-açúcar",
+        "feed_mun_prod": "{} · Produção {} (t)",
+        "feed_mun_lyr":  "{} · Produção municipal",
+        "feed_uf_prod":  "Cana · Produção Safra {} (t)",
+        "feed_uf_lyr":   "Cana-de-açúcar · Produção estadual",
+    },
+    "en": {
+        "sb_map_bg":     "◎ &nbsp;Map Background",
+        "sb_projects":   "◉ &nbsp;SAF Projects",
+        "sb_layers":     "⊕ &nbsp;Map Layers",
+        "sb_feedstocks": "◆ &nbsp;Feedstocks · SAF",
+        "btn_all":       "✓ All",
+        "btn_none":      "✕ None",
+        "lyr_ref":       "Oil Refineries",
+        "lyr_usi":       "Ethanol Plants",
+        "lyr_fed":       "Federal Highways",
+        "lyr_est":       "State Highways",
+        "feed_off":      "— Disabled",
+        "feed_soy":      "▸  Soybean",
+        "feed_corn":     "▸  Corn",
+        "feed_cane":     "▸  Sugarcane",
+        "feed_year_lbl": "Year",
+        "feed_choro":    "◫  Choropleth",
+        "feed_heat":     "≋  Heat Map",
+        "filter_ph":     "Filter projects...",
+        "footer":        "SIEV · Green Energy Intelligence · CEHTES 2025",
+        "topbar_sub":    "Territorial Mapping · Brazil · SAF &amp; Renewable Energies",
+        "card_states":   "States Mapped",
+        "card_states_u": "UFs",
+        "card_projects": "Projects on Map",
+        "card_regions":  "Regions",
+        "card_regions_u":"regions",
+        "card_layer":    "Active Layer",
+        "ph_title":      "Select a project",
+        "ph_body":       "Click on a marker<br>on the map to view<br>project details",
+        "p_saf_type":    "SAF Project · Brazil",
+        "p_cap":         "SAF Capacity",
+        "p_cap_u":       "m³/year",
+        "p_year":        "Start Year",
+        "p_city":        "City / State",
+        "p_feed":        "Main Feedstock",
+        "p_invest":      "Investment",
+        "p_stage":       "Project Stage",
+        "p_stage_d":     "Stage Description",
+        "p_sources":     "Sources",
+        "r_type":        "Refinery · Brazil",
+        "r_company":     "Company",
+        "r_city":        "City / State",
+        "r_cap":         "Authorized Capacity",
+        "r_year":        "Opening Year",
+        "r_source":      "Data Source",
+        "u_type":        "Ethanol Plant · Brazil",
+        "u_cap":         "Capacity",
+        "u_cap_u":       "m³/day",
+        "u_start":       "Start",
+        "u_city":        "City / State",
+        "u_status":      "Operational Status",
+        "u_class":       "Capacity Class",
+        "leg_route":     "Technology Route",
+        "leg_layers":    "Active Layers",
+        "rt_copro":      "Co-processing HEFA",
+        "rt_hefa":       "Dedicated HEFA",
+        "rt_atj":        "ATJ (Alcohol-to-Jet)",
+        "rt_ft":         "FT (Fischer-Tropsch)",
+        "rt_other":      "Others",
+        "map_state":     "State:",
+        "map_uf":        "UF:",
+        "map_region":    "Region:",
+        "feed_prod_u":   "Production (t)",
+        "feed_lyr":      "SAF Feedstock",
+        "sec_feed":      "Historical Series · {name} · State Evolution",
+        "sec_charts":    "SAF Projects Analysis · Capacity &amp; Technology Distribution",
+        "tab1":          "Capacity by Route",
+        "tab2":          "Capacity + Distribution",
+        "tab3":          "Timeline",
+        "tab4":          "Cumulative Distribution",
+        "tab5":          "Cumulative Evolution",
+        "sp_load":       "Loading {} {}…",
+        "sp_cane":       "Loading Sugarcane…",
+        "sp_hist":       "Loading historical series…",
+        "no_data":       "Historical data for {} not available at the moment.",
+        "ch_by_state":   "{} · Production by State (thousand t)",
+        "ch_season":     "Season",
+        "ch_prod_u":     "Production (thousand t)",
+        "ch_top10_mun":  "Top 10 Municipalities · {} {}",
+        "ch_prod_unit_t":"Production (thousand t)",
+        "ch_top10_uf":   "Top 10 States · Sugarcane Season {}",
+        "tile_light":    "○  Light",
+        "tile_dark":     "◑  Dark",
+        "tile_osm":      "◎  OpenStreet",
+        "tile_sat":      "⊙  Satellite",
+        "tile_mesh":     "□  Mesh Only",
+        "lyr_ref_map":   "Oil Refineries",
+        "lyr_usi_map":   "Ethanol Plants",
+        "lyr_fed_map":   "Federal Highways",
+        "lyr_est_map":   "State Highways",
+        "feed_soy_name": "Soybean",
+        "feed_corn_name":"Corn",
+        "feed_cane_name":"Sugarcane",
+        "feed_mun_prod": "{} · Production {} (t)",
+        "feed_mun_lyr":  "{} · Municipal Production",
+        "feed_uf_prod":  "Sugarcane · Season {} Production (t)",
+        "feed_uf_lyr":   "Sugarcane · State Production",
+    },
+}
+
+# Internal constants (language-agnostic)
+_TILE_URLS = [
+    "CartoDB positron",
+    "CartoDB dark_matter",
+    "OpenStreetMap",
+    "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+    None,
+]
+_FEED_PT_NAMES = ["", "Soja", "Milho", "Cana-de-açúcar"]  # index 0 = disabled
+
 def _run_async(coro):
     """Run async coroutine safely from sync context (works inside Streamlit)."""
     with concurrent.futures.ThreadPoolExecutor(max_workers=1) as pool:
@@ -589,7 +803,7 @@ def build_map(df: pd.DataFrame, gdf_uf, tile_choice: str, tile_url,
         },
         tooltip=folium.GeoJsonTooltip(
             fields=["NM_UF", "SIGLA_UF", "NM_REGIAO"],
-            aliases=["Estado:", "UF:", "Região:"],
+            aliases=[T[get_lang()]["map_state"], T[get_lang()]["map_uf"], T[get_lang()]["map_region"]],
             style=(
                 f"background:{WHITE}; color:{NAVY2}; font-size:12px;"
                 f"border:1px solid {TEAL}; border-radius:4px; padding:6px 10px;"
@@ -750,19 +964,20 @@ def build_map(df: pd.DataFrame, gdf_uf, tile_choice: str, tile_url,
     folium.LayerControl(collapsed=True).add_to(m)
 
     # Legenda de rotas (HTML flutuante no mapa)
+    _lg = get_lang()
     legenda_itens = [
-        ("Coprocessamento HEFA", "#1B4F8A"),
-        ("HEFA Dedicado",        "#2980B9"),
-        ("ATJ (Alcohol-to-Jet)", "#E67E22"),
-        ("FT (Fischer-Tropsch)", "#1A7F4B"),
-        ("Outros",               "#607D8B"),
+        (T[_lg]["rt_copro"], "#1B4F8A"),
+        (T[_lg]["rt_hefa"],  "#2980B9"),
+        (T[_lg]["rt_atj"],   "#E67E22"),
+        (T[_lg]["rt_ft"],    "#1A7F4B"),
+        (T[_lg]["rt_other"], "#607D8B"),
     ]
-    legenda_html = """
+    legenda_html = f"""
 <div style="position:fixed;bottom:24px;left:16px;background:white;padding:12px 16px;
      border-radius:7px;border:1px solid #D8E3EC;font-family:'Segoe UI',Arial,sans-serif;
      font-size:11.5px;box-shadow:0 3px 10px rgba(0,0,0,0.13);z-index:1000;min-width:190px;">
   <div style="font-weight:700;margin-bottom:9px;color:#0D2E57;font-size:11px;
-       text-transform:uppercase;letter-spacing:.8px;">Rota Tecnológica</div>
+       text-transform:uppercase;letter-spacing:.8px;">{T[_lg]["leg_route"]}</div>
 """
     for nome_r, cor_r in legenda_itens:
         # Pino SVG em miniatura para a legenda
@@ -784,20 +999,20 @@ def build_map(df: pd.DataFrame, gdf_uf, tile_choice: str, tile_url,
     # Legenda de camadas extras (refinarias / usinas)
     extras = []
     if gdf_ref is not None:
-        extras.append(("Refinarias de Petróleo", "#1a1a1a", "●"))
+        extras.append((T[_lg]["lyr_ref_map"], "#1a1a1a", "●"))
     if gdf_usi is not None:
-        extras.append(("Usinas de Etanol", "#27AE60", "●"))
+        extras.append((T[_lg]["lyr_usi_map"], "#27AE60", "●"))
     if gdf_fed is not None:
-        extras.append(("Rodovias Federais", "#1565C0", "—"))
+        extras.append((T[_lg]["lyr_fed_map"], "#1565C0", "—"))
     if gdf_est is not None:
-        extras.append(("Rodovias Estaduais", "#E65100", "—"))
+        extras.append((T[_lg]["lyr_est_map"], "#E65100", "—"))
     if extras:
-        legenda_extra = """
+        legenda_extra = f"""
 <div style="position:fixed;bottom:24px;left:220px;background:white;padding:10px 14px;
      border-radius:7px;border:1px solid #D8E3EC;font-family:'Segoe UI',Arial,sans-serif;
      font-size:11.5px;box-shadow:0 3px 10px rgba(0,0,0,0.13);z-index:1000;min-width:180px;">
   <div style="font-weight:700;margin-bottom:8px;color:#0D2E57;font-size:11px;
-       text-transform:uppercase;letter-spacing:.8px;">Camadas Ativas</div>
+       text-transform:uppercase;letter-spacing:.8px;">{T[_lg]["leg_layers"]}</div>
 """
         for lbl, cor, sym in extras:
             legenda_extra += (
@@ -840,6 +1055,7 @@ def build_map(df: pd.DataFrame, gdf_uf, tile_choice: str, tile_url,
 
 # ── Painel de detalhes do projeto ─────────────────────────────────────────────
 def render_panel(row: dict):
+    lang = get_lang()
     projeto      = str(row.get("Projeto", "—"))
     proponente   = str(row.get("Proponente", "—"))
     capacidade   = str(row.get("Capacidade", "—"))
@@ -893,7 +1109,7 @@ def render_panel(row: dict):
   <!-- Cabeçalho colorido -->
   <div style="background:linear-gradient(135deg,{DARK} 0%,{cor} 100%);padding:16px 18px 14px;">
     <div style="font-size:8.5px;color:rgba(255,255,255,0.65);text-transform:uppercase;
-         letter-spacing:1.3px;font-weight:700;margin-bottom:7px;">Projeto SAF · Brasil</div>
+         letter-spacing:1.3px;font-weight:700;margin-bottom:7px;">{T[lang]["p_saf_type"]}</div>
     <div style="font-size:15px;font-weight:700;color:#FFF;margin-bottom:4px;
          line-height:1.3;">{projeto}</div>
     <div style="font-size:11.5px;color:rgba(255,255,255,0.8);margin-bottom:10px;">{proponente}</div>
@@ -907,31 +1123,31 @@ def render_panel(row: dict):
   <div style="display:flex;background:#F2F6FB;border-bottom:1px solid #D8E3EC;">
     <div style="flex:1;padding:12px 16px;border-right:1px solid #D8E3EC;">
       <div style="color:#8899bb;font-size:9px;text-transform:uppercase;letter-spacing:.7px;
-           font-weight:700;margin-bottom:4px;">Capacidade SAF</div>
+           font-weight:700;margin-bottom:4px;">{T[lang]["p_cap"]}</div>
       <div style="color:{DARK};font-size:20px;font-weight:700;">{capacidade}</div>
-      <div style="color:#8899bb;font-size:9px;margin-top:1px;">m³/ano</div>
+      <div style="color:#8899bb;font-size:9px;margin-top:1px;">{T[lang]["p_cap_u"]}</div>
     </div>
     <div style="flex:1;padding:12px 16px;">
       <div style="color:#8899bb;font-size:9px;text-transform:uppercase;letter-spacing:.7px;
-           font-weight:700;margin-bottom:4px;">Ano de Início</div>
+           font-weight:700;margin-bottom:4px;">{T[lang]["p_year"]}</div>
       <div style="color:{DARK};font-size:20px;font-weight:700;">{ano}</div>
     </div>
   </div>
 
   <!-- Campos de detalhe -->
   <div style="padding:14px 18px 6px 18px;">
-    {campo("Município / UF", municipio)}
-    {campo("Feedstock Principal", feedstock)}
-    {campo("Investimento", investimento)}
-    {campo("Estágio do Projeto", estagio)}
-    {campo("Descrição do Estágio", base)}
+    {campo(T[lang]["p_city"], municipio)}
+    {campo(T[lang]["p_feed"], feedstock)}
+    {campo(T[lang]["p_invest"], investimento)}
+    {campo(T[lang]["p_stage"], estagio)}
+    {campo(T[lang]["p_stage_d"], base)}
   </div>
 
   <!-- Fontes -->
   {"" if not fontes_html else f'''
   <div style="padding:10px 18px 14px 18px;border-top:1px solid #EEF2F7;margin-top:4px;">
     <div style="color:#8899bb;font-size:9px;text-transform:uppercase;letter-spacing:.7px;
-         font-weight:700;margin-bottom:7px;">Fontes</div>
+         font-weight:700;margin-bottom:7px;">{T[lang]["p_sources"]}</div>
     {fontes_html}
   </div>'''}
 
@@ -941,6 +1157,7 @@ def render_panel(row: dict):
 
 
 def render_refinaria_panel(row: dict):
+    lang = get_lang()
     def campo(label, valor):
         return (
             f'<div style="margin-bottom:10px;">'
@@ -964,23 +1181,24 @@ def render_refinaria_panel(row: dict):
   <div style="background:linear-gradient(135deg,#4A1500 0%,#C0392B 100%);
        padding:16px 18px 14px;">
     <div style="font-size:8.5px;color:rgba(255,255,255,0.65);text-transform:uppercase;
-         letter-spacing:1.3px;font-weight:700;margin-bottom:7px;">Refinaria · Brasil</div>
+         letter-spacing:1.3px;font-weight:700;margin-bottom:7px;">{T[lang]["r_type"]}</div>
     <div style="font-size:15px;font-weight:700;color:#FFF;margin-bottom:4px;">{nome}</div>
     <span style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.35);
           border-radius:3px;padding:3px 9px;font-size:10px;color:white;font-weight:600;">{sigla}</span>
   </div>
   <div style="padding:14px 18px 10px 18px;">
-    {campo("Empresa / Razão Social", empresa)}
-    {campo("Município / UF", f"{munic} — {uf}")}
-    {campo("Capacidade Autorizada", cap)}
-    {campo("Ano de Inauguração", ano)}
-    {campo("Fonte dos Dados", fonte)}
+    {campo(T[lang]["r_company"], empresa)}
+    {campo(T[lang]["r_city"], f"{munic} — {uf}")}
+    {campo(T[lang]["r_cap"], cap)}
+    {campo(T[lang]["r_year"], ano)}
+    {campo(T[lang]["r_source"], fonte)}
   </div>
 </div>"""
     st.markdown(html, unsafe_allow_html=True)
 
 
 def render_usina_panel(row: dict):
+    lang = get_lang()
     def campo(label, valor):
         return (
             f'<div style="margin-bottom:10px;">'
@@ -1004,7 +1222,7 @@ def render_usina_panel(row: dict):
   <div style="background:linear-gradient(135deg,#0A3D1F 0%,#27AE60 100%);
        padding:16px 18px 14px;">
     <div style="font-size:8.5px;color:rgba(255,255,255,0.65);text-transform:uppercase;
-         letter-spacing:1.3px;font-weight:700;margin-bottom:7px;">Usina de Etanol · Brasil</div>
+         letter-spacing:1.3px;font-weight:700;margin-bottom:7px;">{T[lang]["u_type"]}</div>
     <div style="font-size:15px;font-weight:700;color:#FFF;margin-bottom:4px;">{nome}</div>
     <span style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.35);
           border-radius:3px;padding:3px 9px;font-size:10px;color:white;font-weight:600;">{tipo}</span>
@@ -1012,27 +1230,28 @@ def render_usina_panel(row: dict):
   <div style="display:flex;background:#F2F6FB;border-bottom:1px solid #D8E3EC;">
     <div style="flex:1;padding:12px 16px;border-right:1px solid #D8E3EC;">
       <div style="color:#8899bb;font-size:9px;text-transform:uppercase;letter-spacing:.7px;
-           font-weight:700;margin-bottom:4px;">Capacidade</div>
+           font-weight:700;margin-bottom:4px;">{T[lang]["u_cap"]}</div>
       <div style="color:#0A3D1F;font-size:17px;font-weight:700;">{cap}</div>
-      <div style="color:#8899bb;font-size:9px;">m³/dia</div>
+      <div style="color:#8899bb;font-size:9px;">{T[lang]["u_cap_u"]}</div>
     </div>
     <div style="flex:1;padding:12px 16px;">
       <div style="color:#8899bb;font-size:9px;text-transform:uppercase;letter-spacing:.7px;
-           font-weight:700;margin-bottom:4px;">Início</div>
+           font-weight:700;margin-bottom:4px;">{T[lang]["u_start"]}</div>
       <div style="color:#0A3D1F;font-size:17px;font-weight:700;">{inicio}</div>
     </div>
   </div>
   <div style="padding:14px 18px 10px 18px;">
-    {campo("Município / UF", f"{cidade} — {uf}")}
-    {campo("Situação Operacional", situacao)}
-    {campo("Classe de Capacidade", classe)}
+    {campo(T[lang]["u_city"], f"{cidade} — {uf}")}
+    {campo(T[lang]["u_status"], situacao)}
+    {campo(T[lang]["u_class"], classe)}
   </div>
 </div>"""
     st.markdown(html, unsafe_allow_html=True)
 
 
 def render_panel_placeholder():
-    st.markdown("""
+    lang = get_lang()
+    st.markdown(f"""
 <div style="background:white;border-radius:7px;border:1.5px dashed #B8CDE0;
      display:flex;align-items:center;justify-content:center;flex-direction:column;
      padding:48px 24px;text-align:center;min-height:460px;">
@@ -1042,10 +1261,10 @@ def render_panel_placeholder():
     <circle cx="12" cy="10" r="3"/>
   </svg>
   <div style="font-size:14px;font-weight:700;color:#6B7A8D;margin-bottom:6px;">
-    Selecione um projeto
+    {T[lang]["ph_title"]}
   </div>
   <div style="font-size:12px;color:#9AABBE;line-height:1.6;max-width:200px;">
-    Clique em um marcador<br>no mapa para ver os<br>detalhes do projeto
+    {T[lang]["ph_body"]}
   </div>
 </div>""", unsafe_allow_html=True)
 
@@ -1053,7 +1272,20 @@ def render_panel_placeholder():
 # ══════════════════════════════════════════════════════════════════════════════
 # SIDEBAR
 # ══════════════════════════════════════════════════════════════════════════════
+# ── Compute language (before sidebar so it's available everywhere) ────────────
+lang = get_lang()
+
 with st.sidebar:
+    # ── Language selector ─────────────────────────────────────────────────────
+    st.radio(
+        "lang_sel",
+        ["🇧🇷 PT", "🇬🇧 EN"],
+        horizontal=True,
+        label_visibility="collapsed",
+        key="lang_sel",
+    )
+    lang = get_lang()
+
     logo_path = Path(__file__).parent / "cehtes_azul_vertical.png"
     if logo_path.exists():
         b64 = logo_b64(logo_path)
@@ -1067,37 +1299,34 @@ with st.sidebar:
         )
 
     # ── 1. FUNDO DO MAPA ─────────────────────────────────────────────────────
-    st.markdown('<span class="sb-label">◎ &nbsp;Fundo do Mapa</span>', unsafe_allow_html=True)
-    TILES = {
-        "○  Claro"       : "CartoDB positron",
-        "◑  Escuro"      : "CartoDB dark_matter",
-        "◎  OpenStreet"  : "OpenStreetMap",
-        "⊙  Satélite"    : "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-        "□  Só Malha"    : None,
-    }
-    tile_choice = st.selectbox(
-        "tile", list(TILES.keys()),
+    st.markdown(f'<span class="sb-label">{T[lang]["sb_map_bg"]}</span>', unsafe_allow_html=True)
+    _tile_labels = [T[lang]["tile_light"], T[lang]["tile_dark"], T[lang]["tile_osm"],
+                    T[lang]["tile_sat"], T[lang]["tile_mesh"]]
+    tile_idx = st.selectbox(
+        "tile", range(5),
+        format_func=lambda i: _tile_labels[i],
         label_visibility="collapsed",
-        key="tile_sel",
+        key="tile_sel_idx",
     )
-    tile_url = TILES[tile_choice]
+    tile_url    = _TILE_URLS[tile_idx]
+    tile_choice = _tile_labels[tile_idx]
 
     # ── 2. PROJETOS SAF ──────────────────────────────────────────────────────
     st.markdown('<hr class="sb-divider">', unsafe_allow_html=True)
     projetos_disp = df_saf["Projeto"].dropna().astype(str).tolist()
     _n_sel = len(st.session_state.get("sel_projetos", projetos_disp))
     st.markdown(
-        f'<span class="sb-label">◉ &nbsp;Projetos SAF'
+        f'<span class="sb-label">{T[lang]["sb_projects"]}'
         f'<span class="sb-badge">{_n_sel} / {len(projetos_disp)}</span>'
         f'</span>',
         unsafe_allow_html=True,
     )
     _c1, _c2 = st.columns(2, gap="small")
     with _c1:
-        if st.button("✓ Todos", key="btn_todos"):
+        if st.button(T[lang]["btn_all"], key="btn_todos"):
             st.session_state["sel_projetos"] = projetos_disp
     with _c2:
-        if st.button("✕ Nenhum", key="btn_nenhum"):
+        if st.button(T[lang]["btn_none"], key="btn_nenhum"):
             st.session_state["sel_projetos"] = []
     projetos_sel = st.multiselect(
         "projetos",
@@ -1105,55 +1334,57 @@ with st.sidebar:
         default=projetos_disp,
         label_visibility="collapsed",
         key="sel_projetos",
-        placeholder="Filtrar projetos...",
+        placeholder=T[lang]["filter_ph"],
     )
 
     # ── 3. CAMADAS DO MAPA ───────────────────────────────────────────────────
     st.markdown('<hr class="sb-divider">', unsafe_allow_html=True)
-    st.markdown('<span class="sb-label">⊕ &nbsp;Camadas do Mapa</span>', unsafe_allow_html=True)
-    show_ref = st.toggle("Refinarias de Petróleo", value=False, key="show_ref")
-    show_usi = st.toggle("Usinas de Etanol",        value=False, key="show_usi")
-    show_fed = st.toggle("Rodovias Federais",        value=False, key="show_fed")
-    show_est = st.toggle("Rodovias Estaduais",       value=False, key="show_est")
+    st.markdown(f'<span class="sb-label">{T[lang]["sb_layers"]}</span>', unsafe_allow_html=True)
+    show_ref = st.toggle(T[lang]["lyr_ref"], value=False, key="show_ref")
+    show_usi = st.toggle(T[lang]["lyr_usi"], value=False, key="show_usi")
+    show_fed = st.toggle(T[lang]["lyr_fed"], value=False, key="show_fed")
+    show_est = st.toggle(T[lang]["lyr_est"], value=False, key="show_est")
 
     # ── 4. FEEDSTOCKS SAF ────────────────────────────────────────────────────
     st.markdown('<hr class="sb-divider">', unsafe_allow_html=True)
-    st.markdown('<span class="sb-label">◆ &nbsp;Feedstocks · SAF</span>', unsafe_allow_html=True)
+    st.markdown(f'<span class="sb-label">{T[lang]["sb_feedstocks"]}</span>', unsafe_allow_html=True)
 
-    _feed_opts = ["— Desativado", "▸  Soja", "▸  Milho", "▸  Cana-de-açúcar"]
-    _feed_raw = st.radio(
-        "feed_prod", _feed_opts,
+    _feed_opts = [T[lang]["feed_off"], T[lang]["feed_soy"], T[lang]["feed_corn"], T[lang]["feed_cane"]]
+    _feed_idx = st.radio(
+        "feed_prod", range(4),
+        format_func=lambda i: _feed_opts[i],
         label_visibility="collapsed",
-        key="feed_produto",
+        key="feed_produto_idx",
     )
-    show_feed    = _feed_raw != "— Desativado"
-    feed_produto = None
+    show_feed    = _feed_idx > 0
+    feed_produto = _FEED_PT_NAMES[_feed_idx] if _feed_idx > 0 else None
+    feed_display = T[lang].get(f"feed_{['','soy','corn','cane'][_feed_idx]}_name", "") if _feed_idx > 0 else ""
     feed_ano     = None
     feed_tipo    = "Coroplético"
 
     if show_feed:
-        feed_produto = _feed_raw.replace("▸", "").strip()
         if feed_produto == "Cana-de-açúcar":
             _ano_min, _ano_max, _ano_def = 2005, 2024, 2024
         else:
             _ano_min, _ano_max, _ano_def = 2010, 2023, 2023
         feed_ano = st.slider(
-            "Ano", _ano_min, _ano_max, _ano_def,
+            T[lang]["feed_year_lbl"], _ano_min, _ano_max, _ano_def,
             key="feed_ano",
         )
-        feed_tipo_raw = st.radio(
+        _tipo_idx = st.radio(
             "feed_tipo",
-            ["◫  Coroplético", "≋  Mapa de Calor"],
+            range(2),
+            format_func=lambda i: [T[lang]["feed_choro"], T[lang]["feed_heat"]][i],
             label_visibility="collapsed",
-            key="feed_tipo",
+            key="feed_tipo_idx",
         )
-        feed_tipo = "Mapa de Calor" if "Calor" in feed_tipo_raw else "Coroplético"
+        feed_tipo = "Mapa de Calor" if _tipo_idx == 1 else "Coroplético"
 
     # ── Footer ───────────────────────────────────────────────────────────────
     st.markdown(
         f'<p style="margin-top:18px;font-size:0.5rem;color:{TEXT};'
         f'opacity:0.32;text-align:center;letter-spacing:.09em;line-height:2">'
-        f'SIEV · Inteligência em Energias Verdes · CEHTES 2025</p>',
+        f'{T[lang]["footer"]}</p>',
         unsafe_allow_html=True,
     )
 
@@ -1182,20 +1413,20 @@ if show_feed and feed_produto and feed_ano:
     _pk = {"Soja": "soja", "Milho": "milho", "Cana-de-açúcar": "cana"}[feed_produto]
 
     if feed_produto in ("Soja", "Milho"):
-        with st.spinner(f"Carregando {feed_produto} {feed_ano}…"):
+        with st.spinner(T[lang]["sp_load"].format(feed_display, feed_ano)):
             _prod = load_feedstock_municipio(_pk, feed_ano)
         if not _prod.empty:
             _gdf_m   = load_municipios_shp()
             _merged  = _gdf_m.merge(_prod[['CD_MUN', 'producao', 'mun_nome']], on='CD_MUN', how='inner')
             feed_gdf_map   = _merged
             feed_col_map   = 'producao'
-            feed_cap_map   = f'{feed_produto} · Produção {feed_ano} (t)'
-            feed_name_map  = f'{feed_produto} · Produção municipal'
+            feed_cap_map   = T[lang]["feed_mun_prod"].format(feed_display, feed_ano)
+            feed_name_map  = T[lang]["feed_mun_lyr"].format(feed_display)
             feed_id_map    = 'CD_MUN'
             feed_label_map = 'NM_MUN'
 
     else:  # Cana → nível estadual
-        with st.spinner("Carregando Cana-de-açúcar…"):
+        with st.spinner(T[lang]["sp_cane"]):
             _cana = load_feedstock_serie('cana')
         if not _cana.empty:
             _sfra   = f"{feed_ano}/{str(feed_ano + 1)[-2:]}"
@@ -1208,8 +1439,8 @@ if show_feed and feed_produto and feed_ano:
             _merged_uf = _merged_uf[_merged_uf['producao'].notna()].copy()
             feed_gdf_map   = _merged_uf
             feed_col_map   = 'producao'
-            feed_cap_map   = f'Cana · Produção Safra {_sfra} (t)'
-            feed_name_map  = 'Cana-de-açúcar · Produção estadual'
+            feed_cap_map   = T[lang]["feed_uf_prod"].format(_sfra)
+            feed_name_map  = T[lang]["feed_uf_lyr"]
             feed_id_map    = 'SIGLA_UF'
             feed_label_map = 'NM_UF'
 
@@ -1238,8 +1469,8 @@ num_projetos_total = len(df_saf)
 st.markdown(
     f'<div class="topbar">'
     f'  <div class="topbar-left">'
-    f'    <span class="topbar-title">SIEV &nbsp;|&nbsp; Sistema de Inteligência em Energias Verdes</span>'
-    f'    <span class="topbar-sub">Mapeamento Territorial · Brasil · SAF &amp; Energias Renováveis</span>'
+    f'    <span class="topbar-title">Mapping of Sustainable Aviation Fuel (SAF) Projects &amp; Value Chains in Brazil</span>'
+    f'    <span class="topbar-sub">{T[lang]["topbar_sub"]}</span>'
     f'  </div>'
     f'  <span class="topbar-badge">CEHTES</span>'
     f'</div>',
@@ -1250,20 +1481,20 @@ st.markdown(
 st.markdown(
     f'<div class="cards-row">'
     f'  <div class="stat-card">'
-    f'    <div class="s-label">Estados Mapeados</div>'
-    f'    <div class="s-value">{num_ufs}<span class="s-unit">UFs</span></div>'
+    f'    <div class="s-label">{T[lang]["card_states"]}</div>'
+    f'    <div class="s-value">{num_ufs}<span class="s-unit">{T[lang]["card_states_u"]}</span></div>'
     f'  </div>'
     f'  <div class="stat-card">'
-    f'    <div class="s-label">Projetos no Mapa</div>'
+    f'    <div class="s-label">{T[lang]["card_projects"]}</div>'
     f'    <div class="s-value">{num_projetos}'
     f'    <span class="s-unit">/ {num_projetos_total}</span></div>'
     f'  </div>'
     f'  <div class="stat-card">'
-    f'    <div class="s-label">Regiões</div>'
-    f'    <div class="s-value">{num_regioes}<span class="s-unit">regiões</span></div>'
+    f'    <div class="s-label">{T[lang]["card_regions"]}</div>'
+    f'    <div class="s-value">{num_regioes}<span class="s-unit">{T[lang]["card_regions_u"]}</span></div>'
     f'  </div>'
     f'  <div class="stat-card">'
-    f'    <div class="s-label">Camada Ativa</div>'
+    f'    <div class="s-label">{T[lang]["card_layer"]}</div>'
     f'    <div class="s-text">{tile_choice}</div>'
     f'  </div>'
     f'</div>',
@@ -1337,10 +1568,10 @@ with col_panel:
 if show_feed and feed_produto and feed_ano:
     _pk_ts = {"Soja": "soja", "Milho": "milho", "Cana-de-açúcar": "cana"}[feed_produto]
     st.markdown(
-        f'<div class="section-header">Série Histórica · {feed_produto} · Evolução por Estado</div>',
+        f'<div class="section-header">{T[lang]["sec_feed"].format(name=feed_display)}</div>',
         unsafe_allow_html=True,
     )
-    with st.spinner("Carregando série histórica…"):
+    with st.spinner(T[lang]["sp_hist"]):
         _serie = load_feedstock_serie(_pk_ts)
 
     if not _serie.empty:
@@ -1367,10 +1598,10 @@ if show_feed and feed_produto and feed_ano:
                         marker=dict(size=5),
                     ))
                 fig_ts.update_layout(
-                    title=dict(text=f'{feed_produto} · Produção por Estado (mil t)',
+                    title=dict(text=T[lang]["ch_by_state"].format(feed_display),
                                font=dict(size=13, color=NAVY2)),
-                    xaxis=dict(title='Safra', tickangle=-45),
-                    yaxis=dict(title='Produção (mil t)'),
+                    xaxis=dict(title=T[lang]["ch_season"], tickangle=-45),
+                    yaxis=dict(title=T[lang]["ch_prod_u"]),
                     height=350, template='plotly_white',
                     legend=dict(orientation='h', y=-0.35, x=0),
                     margin=dict(l=10, r=10, t=45, b=80),
@@ -1393,9 +1624,9 @@ if show_feed and feed_produto and feed_ano:
                     textposition='outside',
                 ))
                 fig_top.update_layout(
-                    title=dict(text=f'Top 10 Municípios · {feed_produto} {feed_ano}',
+                    title=dict(text=T[lang]["ch_top10_mun"].format(feed_display, feed_ano),
                                font=dict(size=13, color=NAVY2)),
-                    xaxis=dict(title='Produção (mil t)'),
+                    xaxis=dict(title=T[lang]["ch_prod_unit_t"]),
                     height=350, template='plotly_white',
                     yaxis=dict(autorange='reversed'),
                     margin=dict(l=10, r=80, t=45, b=20),
@@ -1418,9 +1649,9 @@ if show_feed and feed_produto and feed_ano:
                     textposition='outside',
                 ))
                 fig_bar.update_layout(
-                    title=dict(text=f'Top 10 Estados · Cana Safra {_sfra_bar}',
+                    title=dict(text=T[lang]["ch_top10_uf"].format(_sfra_bar),
                                font=dict(size=13, color=NAVY2)),
-                    xaxis=dict(title='Produção (mil t)'),
+                    xaxis=dict(title=T[lang]["ch_prod_unit_t"]),
                     height=350, template='plotly_white',
                     yaxis=dict(autorange='reversed'),
                     margin=dict(l=10, r=80, t=45, b=20),
@@ -1428,22 +1659,22 @@ if show_feed and feed_produto and feed_ano:
                 )
                 st.plotly_chart(fig_bar, width="stretch")
     else:
-        st.info(f"Dados históricos de {feed_produto} não disponíveis no momento.")
+        st.info(T[lang]["no_data"].format(feed_display))
 
 # ══════════════════════════════════════════════════════════════════════════════
 # GRÁFICOS
 # ══════════════════════════════════════════════════════════════════════════════
 st.markdown(
-    '<div class="section-header">Análise dos Projetos SAF · Capacidade &amp; Distribuição Tecnológica</div>',
+    f'<div class="section-header">{T[lang]["sec_charts"]}</div>',
     unsafe_allow_html=True,
 )
 
 tab1, tab2, tab3, tab4, tab5 = st.tabs([
-    "Capacidade por Rota",
-    "Capacidade + Distribuição",
-    "Linha do Tempo",
-    "Distribuição Acumulada",
-    "Evolução Acumulada",
+    T[lang]["tab1"],
+    T[lang]["tab2"],
+    T[lang]["tab3"],
+    T[lang]["tab4"],
+    T[lang]["tab5"],
 ])
 
 with tab1:
